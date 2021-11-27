@@ -8,18 +8,18 @@ import java.math.BigInteger;
 import java.sql.Blob;
 
 @Entity
+@Table(name = "J_ROUND")
 public class Round extends PanacheEntityBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //TODO: Blob zu String
     private String outputline;
+    private String uuid;
 
-    @Lob
-    private Blob uuid;
-
-    public Round(String outputline, Blob uuid) {
+    public Round(String outputline, String uuid) {
         this.outputline = outputline;
         this.uuid = uuid;
     }
@@ -35,11 +35,11 @@ public class Round extends PanacheEntityBase {
         this.outputline = outputline;
     }
 
-    public Blob getUuid() {
+    public String getUuid() {
         return uuid;
     }
 
-    public void setUuid(Blob uuid) {
+    public void setUuid(String uuid) {
         this.uuid = uuid;
     }
 }

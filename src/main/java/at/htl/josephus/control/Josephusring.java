@@ -7,10 +7,8 @@ import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.UUID;
 
-public class Josephusring extends PanacheEntity{
+public class Josephusring{
 
-    @ManyToOne
-    @JoinColumn(name = "NODE_ID")
     private Node head;
 
     private int fatalNo;
@@ -140,14 +138,6 @@ public class Josephusring extends PanacheEntity{
         }
 
         return list.toString();
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
     }
 }
 

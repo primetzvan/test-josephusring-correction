@@ -6,16 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-public class Node extends PanacheEntity {
+public class Node {
 
-    @ManyToOne
-    @JoinColumn(name = "PERSON_ID")
     private Person person;
-
-    @ManyToOne
-    @JoinColumn(name = "NODE_ID")
     private Node next;
-
     private int position;
 
     public Node() {
