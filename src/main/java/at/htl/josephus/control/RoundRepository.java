@@ -5,6 +5,7 @@ import io.quarkus.hibernate.orm.panache.PanacheRepository;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.json.JsonString;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
@@ -20,5 +21,11 @@ public class RoundRepository implements PanacheRepository<Round> {
   }
 
 
+  public JsonString findOneRing(String uuid) {
 
+    var query = getEntityManager().createQuery("Select r from Round r where r.uuid=:uuid", Round.class);
+    query.setParameter("uuid", uuid);
+    return (JsonString) query.getResultList();
+
+  }
 }

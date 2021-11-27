@@ -8,10 +8,12 @@ import at.htl.josephus.entity.Round;
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObject;
+import javax.json.JsonString;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import java.net.URI;
 
+// TODO: implementiert
 @Path("/josephus")
 public class JosephusEndpoint {
 
@@ -76,7 +78,11 @@ public class JosephusEndpoint {
   @Path("{uuid}")
   @Produces(MediaType.APPLICATION_JSON)
   public Response findOneRing(String uuid) {
-    return null;
+
+    JsonString val = roundRepository.findOneRing(uuid);
+
+       return Response.ok(val).build();
+
   }
 
   /**
