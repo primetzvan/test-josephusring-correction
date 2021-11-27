@@ -1,0 +1,47 @@
+POST http://localhost:8080/api/josephus
+Content-Type: application/json
+
+{
+   "no_of_persons": 4,
+   "fatal_no": 3
+}
+
+
+# HTTP/1.1 201 Created
+# Location: http://localhost:8080/api/josephus/xxx
+# content-length: 0
+#
+# <Response body is empty>
+#
+# Response code: 201 (Created); Time: 989ms; Content length: 0 bytes
+
+
+### Fehler in Json-Objekt
+
+POST http://localhost:8080/api/josephus
+Content-Type: application/json
+
+# {
+#   "no_of_persons": 4,
+#   "fatal_nu": 3
+# }
+#
+# POST http://localhost:8080/api/josephus
+#
+# HTTP/1.1 400 Bad Request
+# Content-Type: application/json
+# content-length: 23
+#
+# json-object not correct
+#
+# Response code: 400 (Bad Request); Time: 33ms; Content length: 23 bytes
+
+###
+
+POST http://localhost:8080/api/josephus
+Content-Type: application/json
+
+{
+  "no_of_persons": 10,
+  "fatal_no": 7
+}
