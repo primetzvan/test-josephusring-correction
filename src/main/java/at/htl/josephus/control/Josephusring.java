@@ -13,7 +13,7 @@ public class Josephusring{
 
     private int fatalNo;
 
-    private UUID uuid;
+    private final UUID uuid;
 
     private StringBuilder output;
 

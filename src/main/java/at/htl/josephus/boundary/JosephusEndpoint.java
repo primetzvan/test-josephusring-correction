@@ -99,6 +99,10 @@ public class JosephusEndpoint {
   @Path("/count/{uuid}")
   @Produces(MediaType.APPLICATION_JSON)
   public Response noOfRoundsPerUuid(String uuid) {
-    return null;
+
+    JsonString val = roundRepository.noOfRoundsPerUuid(uuid);
+
+    return Response.status(201).entity(val).build();
+
   }
 }
