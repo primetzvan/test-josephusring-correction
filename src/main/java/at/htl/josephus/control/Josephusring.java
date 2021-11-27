@@ -31,6 +31,8 @@ public class Josephusring{
 
     public Node findLastPerson() {
 
+      addLineToOutput(toString());
+
         Node act = null;
         Node prev = null;
         int i = 2;
@@ -49,6 +51,7 @@ public class Josephusring{
                     }
                     i = 0;
                     act = act.getNext();
+                  addLineToOutput(toString());
                 }else {
                     prev = act;
                     act = act.getNext();
@@ -60,7 +63,10 @@ public class Josephusring{
     }
 
     private void addLineToOutput(String line){
-        output.append(line.toString() + "\n");
+      if (output == null){
+        output = new StringBuilder();
+      }
+        output.append(line).append("\n");
     }
 
     void initRing(int noOfPersons){
@@ -111,8 +117,8 @@ public class Josephusring{
         this.fatalNo = fatalNo;
     }
 
-    public StringBuilder getOutput() {
-        return output;
+    public String getOutput() {
+        return output.toString();
     }
 
     public UUID getUuid() {
