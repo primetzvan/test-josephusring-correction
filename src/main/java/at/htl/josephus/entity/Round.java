@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.math.BigInteger;
 import java.sql.Blob;
 
+//TODO: @Table hinzugefügt
 @Entity
 @Table(name = "J_ROUND")
 public class Round extends PanacheEntityBase {

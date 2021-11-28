@@ -9,6 +9,7 @@ import javax.json.JsonString;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
+// TODO: implementiert
 @ApplicationScoped
 @Transactional
 public class RoundRepository implements PanacheRepository<Round> {
@@ -23,7 +24,11 @@ public class RoundRepository implements PanacheRepository<Round> {
 
   public JsonString findOneRing(String uuid) {
 
-    var query = getEntityManager().createQuery("Select r from Round r where r.uuid=:uuid ", Round.class);
+    var query =
+      getEntityManager()
+      .createQuery(
+        "Select r from Round r where r.uuid=:uuid "
+        , Round.class);
     query.setParameter("uuid", uuid);
     return (JsonString) query.getResultList();
 
@@ -31,7 +36,11 @@ public class RoundRepository implements PanacheRepository<Round> {
 
   public JsonString noOfRoundsPerUuid(String uuid) {
 
-    var query = getEntityManager().createQuery("Select r.uuid, count(r) from Round r where r.uuid=:uuid ", Round.class);
+    var query =
+      getEntityManager()
+        .createQuery(
+          "Select r.uuid, count(r) from Round r where r.uuid=:uuid "
+          , Round.class);
     query.setParameter("uuid", uuid);
     return (JsonString) query.getResultList();
 
